@@ -39,7 +39,7 @@ func main() {
 	fmt.Println("Программа корректно завершила свою работу")
 }
 
-func workers(ctx context.Context, id int, wg *sync.WaitGroup) {
+func worker(ctx context.Context, id int, wg *sync.WaitGroup) {
 	defer wg.Done()
 	for {
 		select {

@@ -19,7 +19,7 @@ func main() {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-			workers(numbersToProcess, processedNumbers)
+			worker(numbersToProcess, processedNumbers)
 		}()
 	}
 
@@ -40,7 +40,7 @@ func main() {
 	}
 }
 
-func workers(toProcess <-chan int, processed chan<- int) {
+func worker(toProcess <-chan int, processed chan<- int) {
 	for {
 		v, ok := <-toProcess
 		if !ok {
