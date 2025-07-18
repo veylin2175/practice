@@ -17,10 +17,7 @@ func main() {
 	j := len(runes) - 1
 
 	for i < j {
-		temp := runes[i]
-		runes[i] = runes[j]
-		runes[j] = temp
-
+		runes[i], runes[j] = runes[j], runes[i]
 		i++
 		j--
 	}
