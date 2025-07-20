@@ -14,8 +14,8 @@ type cat struct {
 	name string
 }
 
-func (c *cat) Meow() {
-	fmt.Println(c.name, "мяукает.")
+func (c *cat) Meow(period string) {
+	fmt.Printf("%v мяукает %v.\n", c.name, period)
 }
 
 type adapter interface {
@@ -39,7 +39,7 @@ type catAdapter struct {
 }
 
 func (c *catAdapter) reaction() {
-	c.Meow()
+	c.Meow("постоянно")
 }
 
 func newCatAdapter(c *cat) adapter {
